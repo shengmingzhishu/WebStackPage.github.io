@@ -1,0 +1,401 @@
+/* 增强视觉效果 - WebStack.cc */
+
+/* 浮动动画 */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+/* 渐现动画 */
+@keyframes fadeInScale {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 滑动进入动画 */
+@keyframes slideInLeft {
+    0% {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* 旋转动画 */
+@keyframes rotateIn {
+    0% {
+        opacity: 0;
+        transform: rotate(-180deg) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: rotate(0deg) scale(1);
+    }
+}
+
+/* 波浪效果 */
+@keyframes wave {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    25% {
+        transform: translateY(-5px);
+    }
+    75% {
+        transform: translateY(5px);
+    }
+}
+
+/* 星光闪烁效果 */
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 0;
+        transform: scale(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* 增强的卡片动画 */
+.xe-widget.xe-conversations {
+    position: relative;
+    overflow: hidden;
+}
+
+.xe-widget.xe-conversations::after {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transform: rotate(45deg);
+    transition: var(--transition-slow);
+    opacity: 0;
+}
+
+.xe-widget.xe-conversations:hover::after {
+    animation: wave 1.5s ease-in-out;
+    opacity: 1;
+}
+
+/* 标签悬浮效果增强 */
+.label {
+    position: relative;
+    overflow: hidden;
+}
+
+.label::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transition: var(--transition-normal);
+}
+
+.label:hover::before {
+    left: 100%;
+}
+
+/* 图标动画效果 */
+.xe-user-img img {
+    position: relative;
+}
+
+.xe-user-img img::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(79, 172, 254, 0.3);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: var(--transition-normal);
+    z-index: 1;
+}
+
+.xe-widget.xe-conversations:hover .xe-user-img img::after {
+    width: 100%;
+    height: 100%;
+}
+
+/* 文字打字机效果 */
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink {
+    50% {
+        border-color: transparent;
+    }
+}
+
+.xe-user-name {
+    position: relative;
+    overflow: hidden;
+}
+
+.xe-user-name::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--primary-color);
+    animation: blink 1s infinite;
+}
+
+/* 按钮悬停效果 */
+.user-info-menu a,
+.language-switcher .dropdown-toggle {
+    position: relative;
+    overflow: hidden;
+}
+
+.user-info-menu a::before,
+.language-switcher .dropdown-toggle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: var(--transition-normal);
+    z-index: -1;
+}
+
+.user-info-menu a:hover::before,
+.language-switcher .dropdown-toggle:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* 侧边栏链接增强 */
+#main-menu li {
+    position: relative;
+}
+
+#main-menu li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 50%;
+    width: 0;
+    height: 2px;
+    background: var(--accent-gradient);
+    transform: translateY(-50%);
+    transition: var(--transition-normal);
+}
+
+#main-menu li:hover::before,
+#main-menu li.active::before {
+    width: 4px;
+}
+
+/* 标题动画 */
+h4.text-gray {
+    position: relative;
+    overflow: hidden;
+}
+
+h4.text-gray::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: var(--transition-slow);
+}
+
+h4.text-gray:hover::before {
+    left: 100%;
+}
+
+/* 导航菜单增强 */
+.navbar.user-info-navbar {
+    position: relative;
+    overflow: hidden;
+}
+
+.navbar.user-info-navbar::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+    transition: var(--transition-slow);
+}
+
+.navbar.user-info-navbar:hover::before {
+    left: 100%;
+}
+
+/* 滚动指示器 */
+.page-container::after {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: var(--primary-gradient);
+    transform-origin: left;
+    transform: scaleX(0);
+    z-index: 9999;
+    transition: var(--transition-fast);
+}
+
+/* 页面加载动画 */
+@keyframes pageLoad {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.main-content {
+    animation: pageLoad 0.8s ease-out;
+}
+
+/* 鼠标跟随效果 */
+.cursor-follower {
+    position: fixed;
+    width: 20px;
+    height: 20px;
+    background: var(--accent-gradient);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 9999;
+    transition: transform 0.1s ease;
+    opacity: 0.7;
+    mix-blend-mode: difference;
+}
+
+/* 悬浮粒子效果 */
+@keyframes particle {
+    0% {
+        transform: translateY(100vh) scale(0);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+    }
+    90% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-10vh) scale(1);
+        opacity: 0;
+    }
+}
+
+.particle {
+    position: fixed;
+    width: 4px;
+    height: 4px;
+    background: var(--accent-gradient);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: 1;
+    animation: particle 15s linear infinite;
+}
+
+/* 3D翻转效果 */
+.xe-widget.xe-conversations {
+    transform-style: preserve-3d;
+    perspective: 1000px;
+}
+
+.xe-widget.xe-conversations:hover {
+    transform: rotateY(5deg) rotateX(5deg) translateY(-8px) scale(1.02);
+}
+
+/* 边框动画 */
+@keyframes borderGlow {
+    0%, 100% {
+        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 0 20px rgba(79, 172, 254, 0.2);
+    }
+    50% {
+        border-color: rgba(79, 172, 254, 0.6);
+        box-shadow: 0 0 30px rgba(79, 172, 254, 0.4);
+    }
+}
+
+.xe-widget.xe-conversations:hover {
+    animation: borderGlow 2s ease-in-out infinite;
+}
+
+/* 响应式增强 */
+@media (max-width: 768px) {
+    .xe-widget.xe-conversations {
+        transform: none !important;
+    }
+    
+    .xe-widget.xe-conversations:hover {
+        transform: translateY(-4px) !important;
+    }
+    
+    h4.text-gray {
+        font-size: 1.2rem;
+    }
+    
+    .xe-user-img img {
+        width: 36px !important;
+        height: 36px !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .xe-widget.xe-conversations {
+        padding: 1rem !important;
+        margin: 0.75rem 0 !important;
+    }
+    
+    .xe-user-img img {
+        width: 32px !important;
+        height: 32px !important;
+    }
+    
+    .xe-comment p {
+        font-size: 0.8rem !important;
+    }
+}
